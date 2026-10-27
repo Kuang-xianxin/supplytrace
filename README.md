@@ -4,7 +4,14 @@
 
 SupplyTrace helps a purchasing or operations colleague inspect source records and answer a delivery-date question. It preserves the original data, shows the calculation behind a promise, and keeps earlier decisions available for comparison.
 
-This Open Agent Hackathon submission targets **Track 02: The Agent That Can Explain Why**. See [build disclosure](docs/BUILD-DISCLOSURE.md) for coding-agent assistance and pre-existing components.
+This Open Agent Hackathon project targets **Track 02: The Agent That Can Explain Why**. See [build disclosure](docs/BUILD-DISCLOSURE.md) for coding-agent assistance and pre-existing components.
+
+## Demo and pitch
+
+- [Watch the actual product demo](https://youtu.be/dD5YLiiBCDw) — about 2 minutes 35 seconds, English captions. Two query waits are shortened and their actual durations are disclosed.
+- [Download the 10-slide pitch deck](SupplyTrace-pitch-20261027.pptx) — editable slides with actual product visuals, architecture and sponsor integration.
+
+These artifacts demonstrate the local implementation. Their publication does not establish official contest acceptance.
 
 ## Two workspaces
 
