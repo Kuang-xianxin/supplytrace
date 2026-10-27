@@ -1,0 +1,25 @@
+{
+  "meta": {"origin": "Original synthetic procurement scenario, created for SupplyTrace on 2026-10-22; no employer or customer data.", "as_of": "2026-10-22", "units": "pieces", "warehouse_scope": "single pool, no inter-warehouse transfer", "clock": "calendar days; inbound is usable at start of available date"},
+  "inventory": [
+    {"id":"INV-101","sku":"LAMP-01","on_hand":80,"damaged":5,"warehouse":"SYN-WH-A","updated_at":"2026-10-22"},
+    {"id":"INV-102","sku":"HUB-02","on_hand":20,"damaged":0,"warehouse":"SYN-WH-A","updated_at":"2026-10-22"},
+    {"id":"INV-103","sku":"FILTER-03","on_hand":100,"damaged":0,"warehouse":"SYN-WH-A","updated_at":"2026-10-15"}
+  ],
+  "orders": [
+    {"id":"SO-201","sku":"LAMP-01","quantity":50,"due_date":"2026-10-24","status":"open","updated_at":"2026-10-22"},
+    {"id":"SO-202","sku":"LAMP-01","quantity":20,"due_date":"2026-10-27","status":"open","updated_at":"2026-10-22"},
+    {"id":"SO-203","sku":"LAMP-01","quantity":999,"due_date":"2026-10-23","status":"cancelled","updated_at":"2026-10-22"},
+    {"id":"SO-204","sku":"HUB-02","quantity":30,"due_date":"2026-10-23","status":"open","updated_at":"2026-10-22"}
+  ],
+  "shipments": [
+    {"id":"PO-301","sku":"LAMP-01","quantity":60,"eta":"2026-10-25","status":"confirmed","supplier_id":"SYN-S1","updated_at":"2026-10-22"},
+    {"id":"PO-302","sku":"LAMP-01","quantity":200,"eta":"2026-10-23","status":"unconfirmed","supplier_id":"SYN-S1","updated_at":"2026-10-22"},
+    {"id":"PO-303","sku":"LAMP-01","quantity":100,"eta":"2026-10-30","status":"confirmed","supplier_id":"SYN-S1","updated_at":"2026-10-22"},
+    {"id":"PO-304","sku":"HUB-02","quantity":100,"eta":"2026-10-24","status":"confirmed","supplier_id":"SYN-S2","updated_at":"2026-10-22"}
+  ],
+  "supplier": [
+    {"id":"TERMS-401","sku":"LAMP-01","supplier_id":"SYN-S1","safety_stock":10,"handling_days":1,"buffer_days":1,"lead_days":7,"updated_at":"2026-10-22"},
+    {"id":"TERMS-402","sku":"HUB-02","supplier_id":"SYN-S2","safety_stock":5,"handling_days":1,"buffer_days":0,"lead_days":5,"updated_at":"2026-10-22"},
+    {"id":"TERMS-403","sku":"FILTER-03","supplier_id":"SYN-S3","safety_stock":10,"handling_days":0,"buffer_days":1,"lead_days":4,"updated_at":"2026-10-22"}
+  ]
+}

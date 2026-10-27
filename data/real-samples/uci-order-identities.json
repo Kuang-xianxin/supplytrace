@@ -1,0 +1,105 @@
+{
+  "dataset": "Chen, D. (2015). Online Retail. UCI Machine Learning Repository.",
+  "metadata_url": "https://archive.ics.uci.edu/dataset/352/online+retail",
+  "source_url": "https://archive.ics.uci.edu/static/public/352/data.csv",
+  "doi": "https://doi.org/10.24432/C5BW33",
+  "license": "CC BY 4.0",
+  "retrieved_at": "2026-10-23T20:00:27.814180+08:00",
+  "prefix_sha256": "c82072abaee302371594791f0f552d1389c8cb40be5294e03dd3266234108830",
+  "prefix_rows": 10000,
+  "row_number_scope": "1-based CSV rows including the header; NOT verified workbook row numbers",
+  "transformation": "Original field strings unchanged. Selected two pairs from first10000 CSV rows; candidate ID added only at runtime.",
+  "cases": [
+    {
+      "name": "candidate_composite_key",
+      "identity_strategy": "invoice_product",
+      "source_row_numbers": [
+        115,
+        127
+      ],
+      "rows": [
+        {
+          "InvoiceNo": "536381",
+          "StockCode": "71270",
+          "Description": "PHOTO CLIP LINE",
+          "Quantity": "1",
+          "InvoiceDate": "12/1/2010 9:41",
+          "UnitPrice": "1.25",
+          "CustomerID": "15311",
+          "Country": "United Kingdom"
+        },
+        {
+          "InvoiceNo": "536381",
+          "StockCode": "71270",
+          "Description": "PHOTO CLIP LINE",
+          "Quantity": "3",
+          "InvoiceDate": "12/1/2010 9:41",
+          "UnitPrice": "1.25",
+          "CustomerID": "15311",
+          "Country": "United Kingdom"
+        }
+      ]
+    },
+    {
+      "name": "repeated_composite_key",
+      "identity_strategy": "invoice_product",
+      "source_row_numbers": [
+        496,
+        519
+      ],
+      "rows": [
+        {
+          "InvoiceNo": "536409",
+          "StockCode": "21866",
+          "Description": "UNION JACK FLAG LUGGAGE TAG",
+          "Quantity": "1",
+          "InvoiceDate": "12/1/2010 11:45",
+          "UnitPrice": "1.25",
+          "CustomerID": "17908",
+          "Country": "United Kingdom"
+        },
+        {
+          "InvoiceNo": "536409",
+          "StockCode": "21866",
+          "Description": "UNION JACK FLAG LUGGAGE TAG",
+          "Quantity": "1",
+          "InvoiceDate": "12/1/2010 11:45",
+          "UnitPrice": "1.25",
+          "CustomerID": "17908",
+          "Country": "United Kingdom"
+        }
+      ]
+    },
+    {
+      "name": "snapshot_row_identity",
+      "identity_strategy": "source_location",
+      "source_row_numbers": [
+        115,
+        127
+      ],
+      "rows": [
+        {
+          "InvoiceNo": "536381",
+          "StockCode": "71270",
+          "Description": "PHOTO CLIP LINE",
+          "Quantity": "1",
+          "InvoiceDate": "12/1/2010 9:41",
+          "UnitPrice": "1.25",
+          "CustomerID": "15311",
+          "Country": "United Kingdom"
+        },
+        {
+          "InvoiceNo": "536381",
+          "StockCode": "71270",
+          "Description": "PHOTO CLIP LINE",
+          "Quantity": "3",
+          "InvoiceDate": "12/1/2010 9:41",
+          "UnitPrice": "1.25",
+          "CustomerID": "15311",
+          "Country": "United Kingdom"
+        }
+      ]
+    }
+  ],
+  "limits": "Repeated products can be legitimate invoice lines. A location identity is unique only within this exact snapshot. No stock, promised delivery date, supplier ETA, operational user or AI evidence is supplied."
+}

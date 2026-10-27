@@ -1,0 +1,8 @@
+{
+  "name": "supplytrace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"test:hmem": "tsx vendor/meterless/engines/hmem/conformance/runner.ts"},
+  "devDependencies": {"tsx": "4.20.5"}
+}

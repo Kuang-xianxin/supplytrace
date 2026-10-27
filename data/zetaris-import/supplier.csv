@@ -1,0 +1,4 @@
+id,sku,supplier_id,safety_stock,handling_days,buffer_days,lead_days,updated_at
+TERMS-401,LAMP-01,SYN-S1,10,1,1,7,2026-10-22
+TERMS-402,HUB-02,SYN-S2,5,1,0,5,2026-10-22
+TERMS-403,FILTER-03,SYN-S3,10,0,1,4,2026-10-22

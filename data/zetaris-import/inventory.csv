@@ -1,0 +1,4 @@
+id,sku,on_hand,damaged,warehouse,updated_at
+INV-101,LAMP-01,80,5,SYN-WH-A,2026-10-22
+INV-102,HUB-02,20,0,SYN-WH-A,2026-10-22
+INV-103,FILTER-03,100,0,SYN-WH-A,2026-10-15

@@ -1,0 +1,5 @@
+id,sku,quantity,eta,status,supplier_id,updated_at
+PO-301,LAMP-01,60,2026-10-25,confirmed,SYN-S1,2026-10-22
+PO-302,LAMP-01,200,2026-10-23,unconfirmed,SYN-S1,2026-10-22
+PO-303,LAMP-01,100,2026-10-30,confirmed,SYN-S1,2026-10-22
+PO-304,HUB-02,100,2026-10-24,confirmed,SYN-S2,2026-10-22
