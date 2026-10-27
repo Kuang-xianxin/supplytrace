@@ -1,0 +1,414 @@
+{
+  "checked_at": "2026-10-27T10:50:54.632141+00:00",
+  "mode": "live",
+  "official_platform_passed": true,
+  "http_attempted": true,
+  "traces": [
+    {
+      "id": "Q1",
+      "tool": "inventory",
+      "source": "zetaris-rest",
+      "retrieved_at": "2026-10-27T10:50:58.435866+00:00",
+      "elapsed_ms": 3782.0,
+      "row_count": 1,
+      "sha256": "49df6af74e195f25331ec7f36adad12f7eecfb01289c074404a380d7ee1dd25e",
+      "query": "SELECT * FROM supplytrace.inventory WHERE sku = 'LAMP-01' ORDER BY id",
+      "parameters": [],
+      "read_only": true,
+      "complete": true,
+      "pages": 1,
+      "page_limit": 1,
+      "cursor": "closed",
+      "platform_records": [
+        {
+          "damaged": "5",
+          "sku": "LAMP-01",
+          "on_hand": "80",
+          "id": "INV-101",
+          "updated_at": "2026-10-22",
+          "warehouse": "SYN-WH-A"
+        }
+      ],
+      "integer_conversion": "Declared integer fields only; original scalar types are platform JSON strings or integers.",
+      "snapshot": "sequential source reads; not an atomic cross-source snapshot",
+      "rows": [
+        {
+          "damaged": 5,
+          "sku": "LAMP-01",
+          "on_hand": 80,
+          "id": "INV-101",
+          "updated_at": "2026-10-22",
+          "warehouse": "SYN-WH-A"
+        }
+      ]
+    },
+    {
+      "id": "Q2",
+      "tool": "orders",
+      "source": "zetaris-rest",
+      "retrieved_at": "2026-10-27T10:51:01.954623+00:00",
+      "elapsed_ms": 3515.0,
+      "row_count": 3,
+      "sha256": "3a77f987934845d91fbe90f0ee50c837acf9db29680cfc11be259f60caa65091",
+      "query": "SELECT * FROM supplytrace.orders WHERE sku = 'LAMP-01' ORDER BY id",
+      "parameters": [],
+      "read_only": true,
+      "complete": true,
+      "pages": 3,
+      "page_limit": 1,
+      "cursor": "closed",
+      "platform_records": [
+        {
+          "id": "SO-201",
+          "status": "open",
+          "due_date": "2026-10-24",
+          "updated_at": "2026-10-22",
+          "quantity": "50",
+          "sku": "LAMP-01"
+        },
+        {
+          "id": "SO-202",
+          "status": "open",
+          "due_date": "2026-10-27",
+          "updated_at": "2026-10-22",
+          "quantity": "20",
+          "sku": "LAMP-01"
+        },
+        {
+          "id": "SO-203",
+          "status": "cancelled",
+          "due_date": "2026-10-23",
+          "updated_at": "2026-10-22",
+          "quantity": "999",
+          "sku": "LAMP-01"
+        }
+      ],
+      "integer_conversion": "Declared integer fields only; original scalar types are platform JSON strings or integers.",
+      "snapshot": "sequential source reads; not an atomic cross-source snapshot",
+      "rows": [
+        {
+          "id": "SO-201",
+          "status": "open",
+          "due_date": "2026-10-24",
+          "updated_at": "2026-10-22",
+          "quantity": 50,
+          "sku": "LAMP-01"
+        },
+        {
+          "id": "SO-202",
+          "status": "open",
+          "due_date": "2026-10-27",
+          "updated_at": "2026-10-22",
+          "quantity": 20,
+          "sku": "LAMP-01"
+        },
+        {
+          "id": "SO-203",
+          "status": "cancelled",
+          "due_date": "2026-10-23",
+          "updated_at": "2026-10-22",
+          "quantity": 999,
+          "sku": "LAMP-01"
+        }
+      ]
+    },
+    {
+      "id": "Q3",
+      "tool": "shipments",
+      "source": "zetaris-rest",
+      "retrieved_at": "2026-10-27T10:51:05.714359+00:00",
+      "elapsed_ms": 3766.0,
+      "row_count": 3,
+      "sha256": "2bebf4f04bb079fb73d4f18a63bd1e0466a46caadca1e58f598645c2efb561e1",
+      "query": "SELECT * FROM supplytrace.shipments WHERE sku = 'LAMP-01' ORDER BY id",
+      "parameters": [],
+      "read_only": true,
+      "complete": true,
+      "pages": 3,
+      "page_limit": 1,
+      "cursor": "closed",
+      "platform_records": [
+        {
+          "supplier_id": "SYN-S1",
+          "id": "PO-301",
+          "status": "confirmed",
+          "eta": "2026-10-25",
+          "updated_at": "2026-10-22",
+          "quantity": "60",
+          "sku": "LAMP-01"
+        },
+        {
+          "supplier_id": "SYN-S1",
+          "id": "PO-302",
+          "status": "unconfirmed",
+          "eta": "2026-10-23",
+          "updated_at": "2026-10-22",
+          "quantity": "200",
+          "sku": "LAMP-01"
+        },
+        {
+          "supplier_id": "SYN-S1",
+          "id": "PO-303",
+          "status": "confirmed",
+          "eta": "2026-10-30",
+          "updated_at": "2026-10-22",
+          "quantity": "100",
+          "sku": "LAMP-01"
+        }
+      ],
+      "integer_conversion": "Declared integer fields only; original scalar types are platform JSON strings or integers.",
+      "snapshot": "sequential source reads; not an atomic cross-source snapshot",
+      "rows": [
+        {
+          "supplier_id": "SYN-S1",
+          "id": "PO-301",
+          "status": "confirmed",
+          "eta": "2026-10-25",
+          "updated_at": "2026-10-22",
+          "quantity": 60,
+          "sku": "LAMP-01"
+        },
+        {
+          "supplier_id": "SYN-S1",
+          "id": "PO-302",
+          "status": "unconfirmed",
+          "eta": "2026-10-23",
+          "updated_at": "2026-10-22",
+          "quantity": 200,
+          "sku": "LAMP-01"
+        },
+        {
+          "supplier_id": "SYN-S1",
+          "id": "PO-303",
+          "status": "confirmed",
+          "eta": "2026-10-30",
+          "updated_at": "2026-10-22",
+          "quantity": 100,
+          "sku": "LAMP-01"
+        }
+      ]
+    },
+    {
+      "id": "Q4",
+      "tool": "supplier",
+      "source": "zetaris-rest",
+      "retrieved_at": "2026-10-27T10:51:08.617932+00:00",
+      "elapsed_ms": 2891.0,
+      "row_count": 1,
+      "sha256": "03144da481f110e6efccc0df7179a15cbd04d1d0d99c173d2354b0a1fc45341a",
+      "query": "SELECT * FROM supplytrace.supplier WHERE sku = 'LAMP-01' ORDER BY id",
+      "parameters": [],
+      "read_only": true,
+      "complete": true,
+      "pages": 1,
+      "page_limit": 1,
+      "cursor": "closed",
+      "platform_records": [
+        {
+          "sku": "LAMP-01",
+          "safety_stock": "10",
+          "lead_days": "7",
+          "buffer_days": "1",
+          "supplier_id": "SYN-S1",
+          "updated_at": "2026-10-22",
+          "handling_days": "1",
+          "id": "TERMS-401"
+        }
+      ],
+      "integer_conversion": "Declared integer fields only; original scalar types are platform JSON strings or integers.",
+      "snapshot": "sequential source reads; not an atomic cross-source snapshot",
+      "rows": [
+        {
+          "sku": "LAMP-01",
+          "safety_stock": 10,
+          "lead_days": 7,
+          "buffer_days": 1,
+          "supplier_id": "SYN-S1",
+          "updated_at": "2026-10-22",
+          "handling_days": 1,
+          "id": "TERMS-401"
+        }
+      ]
+    }
+  ],
+  "synthetic_data": true,
+  "import_manifest": [
+    {
+      "tool": "inventory",
+      "csv": "zetaris-import\\inventory.csv",
+      "rows": 3,
+      "sha256": "c164e414a5235d5430da758b5693bebc9d1d6cb8f48b57f084cca2d26b81a7c4",
+      "columns": [
+        "id",
+        "sku",
+        "updated_at",
+        "on_hand",
+        "damaged",
+        "warehouse"
+      ],
+      "integer_columns": [
+        "on_hand",
+        "damaged"
+      ],
+      "lamp01_ids": [
+        "INV-101"
+      ],
+      "original_match": true
+    },
+    {
+      "tool": "orders",
+      "csv": "zetaris-import\\orders.csv",
+      "rows": 4,
+      "sha256": "ed80c5989f69211f92894f41fb95c700437ec89bbb5b68d9a51d22374cdc3be5",
+      "columns": [
+        "id",
+        "sku",
+        "updated_at",
+        "quantity",
+        "due_date",
+        "status"
+      ],
+      "integer_columns": [
+        "quantity"
+      ],
+      "lamp01_ids": [
+        "SO-201",
+        "SO-202",
+        "SO-203"
+      ],
+      "original_match": true
+    },
+    {
+      "tool": "shipments",
+      "csv": "zetaris-import\\shipments.csv",
+      "rows": 4,
+      "sha256": "c157a141cd66afe1a6dfaddbfa0c8ab86e97c42a2f0a0bd6c61be530fda7d903",
+      "columns": [
+        "id",
+        "sku",
+        "updated_at",
+        "quantity",
+        "eta",
+        "status",
+        "supplier_id"
+      ],
+      "integer_columns": [
+        "quantity"
+      ],
+      "lamp01_ids": [
+        "PO-301",
+        "PO-302",
+        "PO-303"
+      ],
+      "original_match": true
+    },
+    {
+      "tool": "supplier",
+      "csv": "zetaris-import\\supplier.csv",
+      "rows": 3,
+      "sha256": "5e5ce90358637d0dbcb7402301576a17f4151757ae19477431787e7622e4c762",
+      "columns": [
+        "id",
+        "sku",
+        "updated_at",
+        "supplier_id",
+        "safety_stock",
+        "handling_days",
+        "buffer_days",
+        "lead_days"
+      ],
+      "integer_columns": [
+        "safety_stock",
+        "handling_days",
+        "buffer_days",
+        "lead_days"
+      ],
+      "lamp01_ids": [
+        "TERMS-401"
+      ],
+      "original_match": true
+    }
+  ],
+  "offline_import_audit_passed": true,
+  "decision": {
+    "verdict": "can_promise",
+    "capacity": 55,
+    "requested": 30,
+    "shortfall": 0,
+    "usable_stock": 75,
+    "safety_stock": 10,
+    "issues": [],
+    "excluded": [
+      {
+        "ref": "orders:SO-203",
+        "reason": "order_cancelled"
+      },
+      {
+        "ref": "shipments:PO-302",
+        "reason": "shipment_unconfirmed"
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2026-10-22",
+        "inbound": 0,
+        "orders": 0,
+        "refs": [],
+        "balance_before_new": 65,
+        "balance_after_new": 65
+      },
+      {
+        "date": "2026-10-24",
+        "inbound": 0,
+        "orders": 50,
+        "refs": [
+          "orders:SO-201"
+        ],
+        "balance_before_new": 15,
+        "balance_after_new": 15
+      },
+      {
+        "date": "2026-10-27",
+        "inbound": 60,
+        "orders": 20,
+        "refs": [
+          "orders:SO-202",
+          "shipments:PO-301"
+        ],
+        "balance_before_new": 55,
+        "balance_after_new": 55
+      },
+      {
+        "date": "2026-10-28",
+        "inbound": 0,
+        "orders": 0,
+        "refs": [],
+        "balance_before_new": 55,
+        "balance_after_new": 25
+      },
+      {
+        "date": "2026-11-01",
+        "inbound": 100,
+        "orders": 0,
+        "refs": [
+          "shipments:PO-303"
+        ],
+        "balance_before_new": 155,
+        "balance_after_new": 125
+      }
+    ],
+    "citations": [
+      "inventory:INV-101",
+      "supplier:TERMS-401",
+      "orders:SO-201",
+      "orders:SO-202",
+      "shipments:PO-301",
+      "shipments:PO-303"
+    ],
+    "earliest_date": "2026-10-28",
+    "new_purchase_arrival_estimate": "2026-10-31",
+    "method": "Minimum projected balance from promised date through all known future commitments; safety stock reserved. Existing shortages require review.",
+    "scope": "Single warehouse pool; calendar days; all known open orders protected; confirmed inbound only; no purchase executed; future delivery is conditional on ETA accuracy."
+  },
+  "status": "live_four_sources_pagination_and_close_passed"
+}

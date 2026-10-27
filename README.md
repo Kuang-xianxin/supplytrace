@@ -53,7 +53,7 @@ The 27 October retained HTTP run imported, analyzed and exported 500,000 generat
 
 Input limits are 64 MiB and 500,000 rows. This is one local workspace with bounded concurrency, disk-backed processing and retained failure evidence. It is not a public multi-user deployment. Sequential source reads are not an atomic cross-source snapshot. Hashes establish record consistency, not source truth. Reviewers identify themselves; no identity verification is claimed.
 
-Current release preparation: the source adapter, local model and H-MEM workflows have been exercised. Official local Zetaris deployment is being verified separately. Contest submission and sponsor acceptance require official receipts and are not established by repository publication.
+On 27 October, the running official local Zetaris platform passed exact four-source row comparison, one-row pagination and cursor closure. Two complete requests used the real local model, Zetaris reads and H-MEM persistence/recall/audit, producing capacities 15 and 55 for the two dates. Reviewed records are in [live platform evidence](docs/evidence/zetaris-live-20261027.json) and [complete workflow evidence](docs/evidence/live-workflow-20261027.json). Contest submission and sponsor acceptance require official receipts and are not established by these technical checks or repository publication.
 
 ## Source map
 

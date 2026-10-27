@@ -1,0 +1,409 @@
+{
+  "checked_at": "2026-10-27T10:52:19.962881+00:00",
+  "passed": true,
+  "scope": "Real local model, official local Zetaris deployment and official H-MEM reference; original synthetic data only",
+  "raw_local_record_sha256": "2dece9d5a5ec4119cd8a9bf28303eaa1bbf81fab22a1d41f33e82c570221fc84",
+  "runs": [
+    {
+      "run_id": "cef1110b-3a49-4dac-bffa-22a6053f94cf",
+      "request": {
+        "sku": "LAMP-01",
+        "quantity": 30,
+        "as_of": "2026-10-22",
+        "promised_date": "2026-10-26",
+        "question": "Check all four sources and explain which dates and commitments determine the promise.",
+        "mode": "ai"
+      },
+      "decision": {
+        "verdict": "cannot_promise",
+        "capacity": 15,
+        "requested": 30,
+        "shortfall": 15,
+        "usable_stock": 75,
+        "safety_stock": 10,
+        "issues": [],
+        "excluded": [
+          {
+            "ref": "orders:SO-203",
+            "reason": "order_cancelled"
+          },
+          {
+            "ref": "shipments:PO-302",
+            "reason": "shipment_unconfirmed"
+          }
+        ],
+        "timeline": [
+          {
+            "date": "2026-10-22",
+            "inbound": 0,
+            "orders": 0,
+            "refs": [],
+            "balance_before_new": 65,
+            "balance_after_new": 65
+          },
+          {
+            "date": "2026-10-24",
+            "inbound": 0,
+            "orders": 50,
+            "refs": [
+              "orders:SO-201"
+            ],
+            "balance_before_new": 15,
+            "balance_after_new": 15
+          },
+          {
+            "date": "2026-10-26",
+            "inbound": 0,
+            "orders": 0,
+            "refs": [],
+            "balance_before_new": 15,
+            "balance_after_new": -15
+          },
+          {
+            "date": "2026-10-27",
+            "inbound": 60,
+            "orders": 20,
+            "refs": [
+              "orders:SO-202",
+              "shipments:PO-301"
+            ],
+            "balance_before_new": 55,
+            "balance_after_new": 25
+          },
+          {
+            "date": "2026-11-01",
+            "inbound": 100,
+            "orders": 0,
+            "refs": [
+              "shipments:PO-303"
+            ],
+            "balance_before_new": 155,
+            "balance_after_new": 125
+          }
+        ],
+        "citations": [
+          "inventory:INV-101",
+          "supplier:TERMS-401",
+          "orders:SO-201",
+          "orders:SO-202",
+          "shipments:PO-301",
+          "shipments:PO-303"
+        ],
+        "earliest_date": "2026-10-27",
+        "new_purchase_arrival_estimate": "2026-10-31",
+        "method": "Minimum projected balance from promised date through all known future commitments; safety stock reserved. Existing shortages require review.",
+        "scope": "Single warehouse pool; calendar days; all known open orders protected; confirmed inbound only; no purchase executed; future delivery is conditional on ETA accuracy."
+      },
+      "plan": {
+        "rationale": "To determine the delivery promise for SKU LAMP-01, I must first check the supplier's current inventory status to see if they can fulfill the order immediately or if a delay is expected. Next, I will query the open purchase orders to identify any contractual commitments or backorders that might affect the timeline. Then, I will examine the shipment history to understand the typical lead times and processing speeds for this item. Finally, I will check the supplier's specific details to confirm their standard operating procedures and any known constraints that influence the promised date of 2026-",
+        "queries": [
+          {
+            "tool": "inventory",
+            "sku": "LAMP-01"
+          },
+          {
+            "tool": "orders",
+            "sku": "LAMP-01"
+          },
+          {
+            "tool": "shipments",
+            "sku": "LAMP-01"
+          },
+          {
+            "tool": "supplier",
+            "sku": "LAMP-01"
+          }
+        ]
+      },
+      "ai": {
+        "status": "real_model_validated",
+        "model_requested": "qwen3.5-4b",
+        "model_returned": "qwen3.5-4b",
+        "usage": {
+          "completion_tokens": 239,
+          "prompt_tokens": 226,
+          "total_tokens": 465,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "raw_output": "{\n  \"rationale\": \"To determine the delivery promise for SKU LAMP-01, I must first check the supplier's current inventory status to see if they can fulfill the order immediately or if a delay is expected. Next, I will query the open purchase orders to identify any contractual commitments or backorders that might affect the timeline. Then, I will examine the shipment history to understand the typical lead times and processing speeds for this item. Finally, I will check the supplier's specific details to confirm their standard operating procedures and any known constraints that influence the promised date of 2026-\",\"queries\": [\n    {\n      \"tool\": \"inventory\",\n      \"sku\": \"LAMP-01\"\n    },\n    {\n      \"tool\": \"orders\",\n      \"sku\": \"LAMP-01\"\n    },\n    {\n      \"tool\": \"shipments\",\n      \"sku\": \"LAMP-01\"\n    },\n    {\n      \"tool\": \"supplier\",\n      \"sku\": \"LAMP-01\"\n    }\n  ]\n}",
+        "elapsed_ms": 10109.0
+      },
+      "data_source": "zetaris-rest",
+      "synthetic": true,
+      "dataset_kind": "original_synthetic_demo",
+      "usage": {
+        "request_units": 1,
+        "query_units": 4,
+        "model_usage": {
+          "completion_tokens": 239,
+          "prompt_tokens": 226,
+          "total_tokens": 465,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "elapsed_ms": 22750.0
+      },
+      "memory": {
+        "status": "real_hmem_reference",
+        "id": "mem-1",
+        "source": "supplytrace:run:cef1110b-3a49-4dac-bffa-22a6053f94cf",
+        "scope": "Historical context only; never reused as live stock or authority."
+      },
+      "queries": [
+        {
+          "tool": "inventory",
+          "source": "zetaris-rest",
+          "retrieved_at": "2026-10-27T10:52:33.379470+00:00",
+          "elapsed_ms": 2781.0,
+          "row_count": 1,
+          "sha256": "49df6af74e195f25331ec7f36adad12f7eecfb01289c074404a380d7ee1dd25e",
+          "pages": 1,
+          "page_limit": 100,
+          "cursor": "closed",
+          "complete": true
+        },
+        {
+          "tool": "orders",
+          "source": "zetaris-rest",
+          "retrieved_at": "2026-10-27T10:52:36.085507+00:00",
+          "elapsed_ms": 2703.0,
+          "row_count": 3,
+          "sha256": "3a77f987934845d91fbe90f0ee50c837acf9db29680cfc11be259f60caa65091",
+          "pages": 1,
+          "page_limit": 100,
+          "cursor": "closed",
+          "complete": true
+        },
+        {
+          "tool": "shipments",
+          "source": "zetaris-rest",
+          "retrieved_at": "2026-10-27T10:52:38.827431+00:00",
+          "elapsed_ms": 2750.0,
+          "row_count": 3,
+          "sha256": "2bebf4f04bb079fb73d4f18a63bd1e0466a46caadca1e58f598645c2efb561e1",
+          "pages": 1,
+          "page_limit": 100,
+          "cursor": "closed",
+          "complete": true
+        },
+        {
+          "tool": "supplier",
+          "source": "zetaris-rest",
+          "retrieved_at": "2026-10-27T10:52:41.549816+00:00",
+          "elapsed_ms": 2719.0,
+          "row_count": 1,
+          "sha256": "03144da481f110e6efccc0df7179a15cbd04d1d0d99c173d2354b0a1fc45341a",
+          "pages": 1,
+          "page_limit": 100,
+          "cursor": "closed",
+          "complete": true
+        }
+      ]
+    },
+    {
+      "run_id": "691989fa-26f1-4953-8b35-edf5073bc9e1",
+      "request": {
+        "sku": "LAMP-01",
+        "quantity": 30,
+        "as_of": "2026-10-22",
+        "promised_date": "2026-10-28",
+        "question": "Check all four sources and explain which dates and commitments determine the promise.",
+        "mode": "ai"
+      },
+      "decision": {
+        "verdict": "can_promise",
+        "capacity": 55,
+        "requested": 30,
+        "shortfall": 0,
+        "usable_stock": 75,
+        "safety_stock": 10,
+        "issues": [],
+        "excluded": [
+          {
+            "ref": "orders:SO-203",
+            "reason": "order_cancelled"
+          },
+          {
+            "ref": "shipments:PO-302",
+            "reason": "shipment_unconfirmed"
+          }
+        ],
+        "timeline": [
+          {
+            "date": "2026-10-22",
+            "inbound": 0,
+            "orders": 0,
+            "refs": [],
+            "balance_before_new": 65,
+            "balance_after_new": 65
+          },
+          {
+            "date": "2026-10-24",
+            "inbound": 0,
+            "orders": 50,
+            "refs": [
+              "orders:SO-201"
+            ],
+            "balance_before_new": 15,
+            "balance_after_new": 15
+          },
+          {
+            "date": "2026-10-27",
+            "inbound": 60,
+            "orders": 20,
+            "refs": [
+              "orders:SO-202",
+              "shipments:PO-301"
+            ],
+            "balance_before_new": 55,
+            "balance_after_new": 55
+          },
+          {
+            "date": "2026-10-28",
+            "inbound": 0,
+            "orders": 0,
+            "refs": [],
+            "balance_before_new": 55,
+            "balance_after_new": 25
+          },
+          {
+            "date": "2026-11-01",
+            "inbound": 100,
+            "orders": 0,
+            "refs": [
+              "shipments:PO-303"
+            ],
+            "balance_before_new": 155,
+            "balance_after_new": 125
+          }
+        ],
+        "citations": [
+          "inventory:INV-101",
+          "supplier:TERMS-401",
+          "orders:SO-201",
+          "orders:SO-202",
+          "shipments:PO-301",
+          "shipments:PO-303"
+        ],
+        "earliest_date": "2026-10-28",
+        "new_purchase_arrival_estimate": "2026-10-31",
+        "method": "Minimum projected balance from promised date through all known future commitments; safety stock reserved. Existing shortages require review.",
+        "scope": "Single warehouse pool; calendar days; all known open orders protected; confirmed inbound only; no purchase executed; future delivery is conditional on ETA accuracy."
+      },
+      "plan": {
+        "rationale": "To determine the delivery promise for SKU LAMP-01, I must first check the supplier's current inventory status to see if they can fulfill the order immediately or if they need to source it. Next, I will query the open purchase orders to identify any existing commitments or backorders for this specific quantity. Then, I will examine the shipment history to understand the typical lead times and processing delays associated with this item. Finally, I will review the supplier details to confirm their standard operating procedures and any contractual terms that might influence the promised delivery.",
+        "queries": [
+          {
+            "tool": "inventory",
+            "sku": "LAMP-01"
+          },
+          {
+            "tool": "orders",
+            "sku": "LAMP-01"
+          },
+          {
+            "tool": "shipments",
+            "sku": "LAMP-01"
+          },
+          {
+            "tool": "supplier",
+            "sku": "LAMP-01"
+          }
+        ]
+      },
+      "ai": {
+        "status": "real_model_validated",
+        "model_requested": "qwen3.5-4b",
+        "model_returned": "qwen3.5-4b",
+        "usage": {
+          "completion_tokens": 234,
+          "prompt_tokens": 226,
+          "total_tokens": 460,
+          "prompt_tokens_details": {
+            "cached_tokens": 140
+          }
+        },
+        "raw_output": "{\n  \"rationale\": \"To determine the delivery promise for SKU LAMP-01, I must first check the supplier's current inventory status to see if they can fulfill the order immediately or if they need to source it. Next, I will query the open purchase orders to identify any existing commitments or backorders for this specific quantity. Then, I will examine the shipment history to understand the typical lead times and processing delays associated with this item. Finally, I will review the supplier details to confirm their standard operating procedures and any contractual terms that might influence the promised delivery.\",\n  \"queries\": [\n    {\n      \"tool\": \"inventory\",\n      \"sku\": \"LAMP-01\"\n    },\n    {\n      \"tool\": \"orders\",\n      \"sku\": \"LAMP-01\"\n    },\n    {\n      \"tool\": \"shipments\",\n      \"sku\": \"LAMP-01\"\n    },\n    {\n      \"tool\": \"supplier\",\n      \"sku\": \"LAMP-01\"\n    }\n  ]\n}",
+        "elapsed_ms": 5016.0
+      },
+      "data_source": "zetaris-rest",
+      "synthetic": true,
+      "dataset_kind": "original_synthetic_demo",
+      "usage": {
+        "request_units": 1,
+        "query_units": 4,
+        "model_usage": {
+          "completion_tokens": 234,
+          "prompt_tokens": 226,
+          "total_tokens": 460,
+          "prompt_tokens_details": {
+            "cached_tokens": 140
+          }
+        },
+        "elapsed_ms": 17016.0
+      },
+      "memory": {
+        "status": "real_hmem_reference",
+        "id": "mem-2",
+        "source": "supplytrace:run:691989fa-26f1-4953-8b35-edf5073bc9e1",
+        "scope": "Historical context only; never reused as live stock or authority."
+      },
+      "queries": [
+        {
+          "tool": "inventory",
+          "source": "zetaris-rest",
+          "retrieved_at": "2026-10-27T10:52:51.343232+00:00",
+          "elapsed_ms": 2672.0,
+          "row_count": 1,
+          "sha256": "49df6af74e195f25331ec7f36adad12f7eecfb01289c074404a380d7ee1dd25e",
+          "pages": 1,
+          "page_limit": 100,
+          "cursor": "closed",
+          "complete": true
+        },
+        {
+          "tool": "orders",
+          "source": "zetaris-rest",
+          "retrieved_at": "2026-10-27T10:52:54.093100+00:00",
+          "elapsed_ms": 2750.0,
+          "row_count": 3,
+          "sha256": "3a77f987934845d91fbe90f0ee50c837acf9db29680cfc11be259f60caa65091",
+          "pages": 1,
+          "page_limit": 100,
+          "cursor": "closed",
+          "complete": true
+        },
+        {
+          "tool": "shipments",
+          "source": "zetaris-rest",
+          "retrieved_at": "2026-10-27T10:52:56.851982+00:00",
+          "elapsed_ms": 2750.0,
+          "row_count": 3,
+          "sha256": "2bebf4f04bb079fb73d4f18a63bd1e0466a46caadca1e58f598645c2efb561e1",
+          "pages": 1,
+          "page_limit": 100,
+          "cursor": "closed",
+          "complete": true
+        },
+        {
+          "tool": "supplier",
+          "source": "zetaris-rest",
+          "retrieved_at": "2026-10-27T10:52:59.718742+00:00",
+          "elapsed_ms": 2875.0,
+          "row_count": 1,
+          "sha256": "03144da481f110e6efccc0df7179a15cbd04d1d0d99c173d2354b0a1fc45341a",
+          "pages": 1,
+          "page_limit": 100,
+          "cursor": "closed",
+          "complete": true
+        }
+      ]
+    }
+  ],
+  "previous_decision_recalled": true,
+  "latest_decision_recalled": true,
+  "both_audit_histories_nonempty": true
+}

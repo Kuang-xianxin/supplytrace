@@ -29,6 +29,14 @@ The actual workbench call on the labeled UCI example returned source positions 1
 - JavaScript syntax checks passed for both interfaces.
 - Meterless persistence/recall/audit tests execute the pinned official reference engine in a real local Node subprocess.
 
-API mocks verify contracts and error handling. They are not live Zetaris platform acceptance. The separate live acceptance checks exact imported rows, one-row pagination, cursor closure and the expected deterministic verdict. Its result must be inspected before claiming that integration is verified.
+API mocks verify contracts and error handling. They are not live Zetaris platform acceptance.
+
+## Real platform and end-to-end acceptance
+
+At 10:50 UTC on 27 October, the running official local Zetaris platform passed all four exact source comparisons, page-size-one retrieval and cursor closure. The imported tables contained 14 original synthetic records; the LAMP-01 acceptance reads returned 1 inventory, 3 order, 3 shipment and 1 supplier records. See [the retained live report](evidence/zetaris-live-20261027.json) for timestamps, unmodified platform strings, normalized integers, hashes and the capacity-55 verdict.
+
+At 10:52 UTC, two complete application requests used real Qwen3.5-4B planning, real Zetaris reads and the official H-MEM reference. They returned capacities 15 and 55 on 26 and 28 October respectively. Both memory audit histories were nonempty; the second request recalled the first decision, and a later recall included the second decision. [Workflow evidence](evidence/live-workflow-20261027.json) contains the requests, plans, model identity, outcomes and query summaries. The two-request acceptance completed in a 42.051-second wrapper run, including process startup and evidence writing; that duration is not individual request latency.
+
+Four separate application-regression checks affected by portable test-artifact paths passed in 2.20 seconds. These overlap with the earlier regression suites. Browser recording remains a separate deliverable; these API records do not prove a video or official contest submission exists.
 
 Retained private evidence identifiers: scale `6a8bf174-119d-4c2a-9cfc-c193126ad756`, disconnect `070a7b4c`, recovery `2aaad570`, regression `171643-6771038d` and `175702-65333e39`. Source publication will contain only reviewed, credential-free evidence extracts.

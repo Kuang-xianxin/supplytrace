@@ -2,7 +2,7 @@
 
 ## Zetaris
 
-The application implements the official paginated SQL query contract. Live platform acceptance is a separate step from mocked API tests. The local platform is being provisioned for the 27 October delivery; no completed platform acceptance is claimed by this document yet.
+The application implements the official paginated SQL query contract. On 27 October 2026, the running official local platform passed exact row comparison for all four sources, one-row pagination and cursor closure. Two real model-driven requests also passed with H-MEM persistence, recall and audit. See [platform evidence](evidence/zetaris-live-20261027.json) and [workflow evidence](evidence/live-workflow-20261027.json). This is technical acceptance on synthetic records, separate from organizer certification.
 
 Official references inspected: [SQL command reference](https://github.com/zetaris/getting-started/blob/main/docs/guides/zetaris-lightning-sql-commands.md), the official local bundle's `verify.sh`, and [API authentication](https://kbase.zetaris.com/knowledge/accessing-zetaris-using-api).
 
@@ -39,6 +39,18 @@ The four original files in `data/zetaris-import/` match `data/synthetic.json` ex
 - `supplier`: id, sku, updated_at, supplier_id, safety_stock, handling_days, buffer_days, lead_days
 
 Register these as `supplytrace.inventory`, `.orders`, `.shipments` and `.supplier` using the official file-source setup. The source must be readable by the query engine. Dates are ISO calendar dates. The platform may serialize integers as strings. The adapter converts only declared integer fields, rejects fractional/malformed/missing values, and preserves the unmodified platform records in each trace.
+
+The verified local setup mounts that directory read-only at `/home/zetaris/customer-data/shared/supplytrace` in the official driver and API containers. After inspecting `SHOW LIGHTNING DATABASES`, it creates the new database and each absent table with the official SQL Editor endpoint. Example, one statement per request:
+
+```sql
+CREATE LIGHTNING DATABASE supplytrace DESCRIBE BY "Original synthetic SupplyTrace fixtures"
+CREATE LIGHTNING FILESTORE TABLE inventory FROM supplytrace FORMAT CSV OPTIONS (
+  path "file:///home/zetaris/customer-data/shared/supplytrace/inventory.csv",
+  header "true", delimiter ","
+)
+```
+
+Repeat the table statement for `orders`, `shipments` and `supplier` with the matching filename, then inspect `SHOW LIGHTNING TABLES supplytrace`. The provisioning endpoint is `POST /api/proxy/sql-editor/sqls/run-query` with `{sql, limit: 1000}` and the same authentication headers. Existing registrations must be inspected rather than replaced. Container mounts and credentials belong in private local configuration.
 
 Only trusted application code creates SQL. The model cannot choose SQL text, columns, endpoints or credentials. Pagination must match the query token, declared total count and page count. Results have a 500-row/5-page bound. Authorization, quota, timeout, incomplete results and cursor failures remain explicit. Zetaris mode never falls back to local rows.
 
