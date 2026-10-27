@@ -8,7 +8,7 @@ This Open Agent Hackathon project targets **Track 02: The Agent That Can Explain
 
 ## Demo and pitch
 
-- [Watch the actual product demo](https://youtu.be/dD5YLiiBCDw) — about 2 minutes 35 seconds, English captions. Two query waits are shortened and their actual durations are disclosed.
+- [Watch the narrated product demo](https://youtu.be/TtJ2Snd-kjg) — about 2 minutes 35 seconds, English narration and captions. Narration uses Kokoro's supplied af_heart synthetic voice; it does not imitate the participant. Two query waits are shortened and their actual durations are disclosed.
 - [Download the 10-slide pitch deck](SupplyTrace-pitch-20261027.pptx) — editable slides with actual product visuals, architecture and sponsor integration.
 
 These artifacts demonstrate the local implementation. Their publication does not establish official contest acceptance.
